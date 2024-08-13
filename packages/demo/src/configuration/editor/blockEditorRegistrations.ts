@@ -190,7 +190,7 @@ export const blockEditorRegistrations: IBlockEditorRegistration[] = [
     {
         name: "LutBlock",
         factory: (smartFilter: SmartFilter) => {
-            const block = new LutBlock(smartFilter, "LUT");
+            const block = new LutBlock(smartFilter, "Lut");
             const level = new InputBlock(smartFilter, "Level", ConnectionPointType.Float, 1.0);
             level.output.connectTo(block.level);
             return block;

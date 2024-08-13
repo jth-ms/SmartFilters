@@ -20,7 +20,7 @@ export function creatLutKittensFilter(engine: ThinEngine): SmartFilter {
         ConnectionPointType.Texture,
         createStrongRef(kittenTexture)
     );
-    const lutBlock = new LutBlock(smartFilter, "lut");
+    const lutBlock = new LutBlock(smartFilter, "Lut");
     const lutDisabled = new InputBlock(smartFilter, "lutDisabled", ConnectionPointType.Boolean, false);
     const lutLevel = new InputBlock(smartFilter, "lutLevel", ConnectionPointType.Float, 1.0);
     const lutBWWarmTexture = createImageTexture(engine, BURN_17_17_34_LUT_DATA_URI, false, undefined, undefined, 1);
