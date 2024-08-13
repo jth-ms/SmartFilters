@@ -9,6 +9,7 @@ import type { IInspectableOptions } from "@babylonjs/core/Misc/iInspectable.js";
 import { ConnectionPointType, type InputBlock, type AnyInputBlock } from "@babylonjs/smart-filters";
 import { Color3PropertyTabComponent } from "../../components/propertyTab/properties/color3PropertyTabComponent.js";
 import { ImageSourcePropertyTabComponent } from "./imageSourcePropertyTabComponent.js";
+import { LutTexturePropertyTabComponent } from "../../components/propertyTab/properties/lutTexturePropertyTabComponent.js";
 
 const booleanOptions: IInspectableOptions[] = [
     {
@@ -179,13 +180,24 @@ export class InputPropertyTabComponent extends react.Component<IPropertyComponen
             }
             case ConnectionPointType.Texture:
                 {
-                    return (
-                        <ImageSourcePropertyTabComponent
-                            inputBlock={inputBlock as InputBlock<ConnectionPointType.Texture>}
-                            nodeData={this.props.nodeData}
-                            stateManager={this.props.stateManager}
-                        />
-                    );
+                    const textureInputBlock = inputBlock as InputBlock<ConnectionPointType.Texture>;
+                    if (textureInputBlock.name === "LutTexture") {
+                        return (
+                            <LutTexturePropertyTabComponent
+                                inputBlock={textureInputBlock}
+                                nodeData={this.props.nodeData}
+                                stateManager={this.props.stateManager}
+                            />
+                        );
+                    } else {
+                        return (
+                            <ImageSourcePropertyTabComponent
+                                inputBlock={textureInputBlock}
+                                nodeData={this.props.nodeData}
+                                stateManager={this.props.stateManager}
+                            />
+                        );
+                    }
                 }
                 break;
             // case NodeMaterialBlockConnectionPointTypes.Vector2:

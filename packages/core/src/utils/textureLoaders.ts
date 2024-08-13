@@ -10,6 +10,7 @@ import { type ThinEngine } from "@babylonjs/core/Engines/thinEngine.js";
  * @param flipY - Indicates if the Y axis should be flipped
  * @param samplingMode - The sampling mode to use
  * @param forcedExtension - defines the extension to use to pick the right loader
+ * @param anisotropicFilteringLevel - defines the anisotropic level to use
  * @returns A ThinTexture of the image
  */
 export function createImageTexture(
@@ -17,7 +18,8 @@ export function createImageTexture(
     url: string,
     flipY: boolean = true,
     samplingMode: number | undefined = undefined,
-    forcedExtension: string | null = null
+    forcedExtension: string | null = null,
+    anisotropicFilteringLevel: number | undefined = 4
 ): ThinTexture {
     const internalTexture = engine.createTexture(
         url,
@@ -32,7 +34,9 @@ export function createImageTexture(
         null,
         forcedExtension
     );
-    return new ThinTexture(internalTexture);
+    const thinTexture = new ThinTexture(internalTexture);
+    thinTexture.anisotropicFilteringLevel = anisotropicFilteringLevel;
+    return thinTexture;
 }
 
 /*

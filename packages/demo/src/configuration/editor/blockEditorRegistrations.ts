@@ -10,6 +10,7 @@ import { FrameBlock } from "../blocks/effects/frameBlock";
 import { GlassBlock } from "../blocks/effects/glassBlock";
 import { GreenScreenBlock } from "../blocks/effects/greenScreenBlock";
 import { KaleidoscopeBlock } from "../blocks/effects/kaleidoscopeBlock";
+import { LutBlock } from "../blocks/effects/lutBlock";
 import { PixelateBlock } from "../blocks/effects/pixelateBlock";
 import { PosterizeBlock } from "../blocks/effects/posterizeBlock";
 import { GlitchBlock } from "../blocks/transitions/glitchBlock";
@@ -25,6 +26,11 @@ export const blockEditorRegistrations: IBlockEditorRegistration[] = [
         name: "WebCam",
         category: "Inputs",
         tooltip: "Supplies a texture from a webcam",
+    },
+    {
+        name: "LutTexture",
+        category: "Inputs",
+        tooltip: "Supplies a texture from lutTexture",
     },
     {
         name: "CopyBlock",
@@ -180,5 +186,16 @@ export const blockEditorRegistrations: IBlockEditorRegistration[] = [
         },
         category: "Effects",
         tooltip: "Alters the exposure of the input texture",
+    },
+    {
+        name: "LutBlock",
+        factory: (smartFilter: SmartFilter) => {
+            const block = new LutBlock(smartFilter, "LUT");
+            const level = new InputBlock(smartFilter, "Level", ConnectionPointType.Float, 1.0);
+            level.output.connectTo(block.level);
+            return block;
+        },
+        category: "Effects",
+        tooltip: "Uses LUT filter to the input texture",
     },
 ];

@@ -37,14 +37,14 @@ export class BlockTools {
         switch (type) {
             case "Float":
                 return ConnectionPointType.Float;
+            case "WebCam":
+            case "LutTexture":
             case "Texture":
                 return ConnectionPointType.Texture;
             case "Color3":
                 return ConnectionPointType.Color3;
             case "Vector2":
                 return ConnectionPointType.Vector2;
-            case "WebCam":
-                return ConnectionPointType.Texture;
         }
 
         // TODO AutoDetect...
