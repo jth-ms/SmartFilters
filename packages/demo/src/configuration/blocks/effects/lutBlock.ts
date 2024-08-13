@@ -79,6 +79,12 @@ export class LUTShaderBinding extends ShaderBinding {
     private readonly _inputTexture: RuntimeData<ConnectionPointType.Texture>;
     private readonly _lutTexture: RuntimeData<ConnectionPointType.Texture>;
     private readonly _level: RuntimeData<ConnectionPointType.Float>;
+    private _lutConfiguration = {
+        numRedSamplesPerSlice: 17.0,
+        numGreenSamplesPerSlice: 17.0,
+        numBlueSlicesPerRowIn2DLayout: 2.0,
+        numBlueSlicesPerColumnIn2DLayout: 17.0,
+    };
 
     /**
      * Creates a new shader binding instance for the Contrast block.
@@ -100,13 +106,16 @@ export class LUTShaderBinding extends ShaderBinding {
     }
 
     getBlueSlicesIn2DLayout(): Vector2 {
-        return new Vector2(2.0 /**numBlueSlicesPerRowIn2DLayout */, 17.0 /**numBlueSlicesPerColumnIn2DLayout */);
+        return new Vector2(
+            this._lutConfiguration.numBlueSlicesPerRowIn2DLayout,
+            this._lutConfiguration.numBlueSlicesPerColumnIn2DLayout
+        );
     }
 
     calculateTextureSize(): Vector2 {
         return this.getBlueSlicesIn2DLayout().multiply({
-            x: 17.0,
-            y: 17.0,
+            x: this._lutConfiguration.numRedSamplesPerSlice,
+            y: this._lutConfiguration.numGreenSamplesPerSlice,
         });
     }
 
