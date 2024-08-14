@@ -13,7 +13,6 @@ import "@babylonjs/core/Engines/Extensions/engine.videoTexture.js";
 /**
  * Creates a default value for the input block of a certain type
  * @param type - defines the type of the input block
- * @param engine - defines the ThinEngine of the input block
  * @returns a strong ref containing the default value
  */
 export function createDefaultValue<U extends ConnectionPointType>(type: U, engine: ThinEngine): RuntimeData<U> {

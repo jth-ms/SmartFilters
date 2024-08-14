@@ -2,6 +2,7 @@ import type { Nullable } from "@babylonjs/core/types";
 import { ConnectionPointType, type BaseBlock } from "@babylonjs/smart-filters";
 import { createDefaultValue, type GlobalState } from "@babylonjs/smart-filters-editor";
 import { WebCamInputBlock } from "../blocks/inputs/webCamInputBlock";
+
 /**
  * Intercepts the creation of an input block and can return specialized input blocks.
  * @param globalState - The global state of the editor.
