@@ -53,4 +53,12 @@ export const smartFilterManifests: SmartFilterManifest[] = [
             );
         },
     },
+    {
+        type: "HardCoded",
+        name: HardCodedSmartFilterNames.lutKittens,
+        createSmartFilter: async (engine: ThinEngine) => {
+            const module = await import(/* webpackChunkName: "lutKittens" */ "./smartFilters/hardCoded/lutKittens");
+            return module.creatLutKittensFilter(engine);
+        },
+    },
 ];
