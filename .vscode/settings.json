@@ -36,7 +36,6 @@
     "files.exclude": {
         "**/node_modules": true,
         "**/dist": false,
-        "**/*.shader.ts": false,
     },
     "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -91,11 +90,6 @@
     },
     "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.formatOnSave": true,
-        "editor.codeActionsOnSave": {
-            "source.organizeImports": "never",
-            "source.fixAll.eslint": "explicit"
-        },
     },
     "search.exclude": {
         "**/.git": true,
