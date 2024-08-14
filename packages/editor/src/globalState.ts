@@ -3,7 +3,7 @@ import type { ThinEngine } from "@babylonjs/core/Engines/thinEngine";
 import type { Nullable } from "@babylonjs/core/types";
 import { StateManager } from "@babylonjs/shared-ui-components/nodeGraphSystem/stateManager.js";
 import { LockObject } from "@babylonjs/shared-ui-components/tabs/propertyGrids/lockObject.js";
-import { type BaseBlock, SmartFilter, type SmartFilterRuntime } from "@babylonjs/smart-filters";
+import { type BaseBlock, SmartFilter, type SmartFilterRuntime, type TextureConfig } from "@babylonjs/smart-filters";
 import { RegisterDefaultInput } from "./graphSystem/registerDefaultInput.js";
 import { RegisterElbowSupport } from "./graphSystem/registerElbowSupport.js";
 import { RegisterNodePortDesign } from "./graphSystem/registerNodePortDesign.js";
@@ -14,6 +14,7 @@ import type { GraphNode } from "@babylonjs/shared-ui-components/nodeGraphSystem/
 export type TexturePreset = {
     name: string;
     url: string;
+    textureConfig?: TextureConfig;
 };
 
 export class GlobalState {
@@ -53,8 +54,6 @@ export class GlobalState {
 
     texturePresets: TexturePreset[];
 
-    lutTexturePresets: TexturePreset[];
-
     saveSmartFilter: () => void;
 
     private _runtime: Nullable<SmartFilterRuntime> = null;
@@ -77,8 +76,7 @@ export class GlobalState {
         blockRegistration: BlockRegistration,
         hostElement: HTMLElement,
         saveSmartFilter: () => void,
-        texturePresets: TexturePreset[] = [],
-        lutTexturePresets: TexturePreset[] = []
+        texturePresets: TexturePreset[] = []
     ) {
         this.stateManager = new StateManager();
         this.stateManager.data = this;
@@ -97,6 +95,5 @@ export class GlobalState {
         this.stateManager.hostDocument = this.hostDocument;
         this.saveSmartFilter = saveSmartFilter;
         this.texturePresets = texturePresets;
-        this.lutTexturePresets = lutTexturePresets;
     }
 }

@@ -34,8 +34,6 @@ export type SmartFilterEditorOptions = {
     onRuntimeCreated?: (runtime: SmartFilterRuntime) => void;
 
     texturePresets?: TexturePreset[];
-
-    lutTexturePresets?: TexturePreset[];
 };
 
 const filterEditorPopupId = "filter-editor";
@@ -71,8 +69,7 @@ export class SmartFilterEditor {
             options.blockRegistration,
             hostElement,
             options.saveSmartFilter,
-            options.texturePresets,
-            options.lutTexturePresets
+            options.texturePresets
         );
 
         RegisterToDisplayManagers(globalState);

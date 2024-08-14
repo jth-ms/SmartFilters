@@ -28,11 +28,6 @@ export const blockEditorRegistrations: IBlockEditorRegistration[] = [
         tooltip: "Supplies a texture from a webcam",
     },
     {
-        name: "LutTexture",
-        category: "Inputs",
-        tooltip: "Supplies a texture from lutTexture",
-    },
-    {
         name: "CopyBlock",
         factory: (smartFilter: SmartFilter) => new CopyBlock(smartFilter, "Copy"),
         category: "Effects",

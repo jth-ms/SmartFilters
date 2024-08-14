@@ -12,7 +12,7 @@ import { CustomInputDisplayManager } from "../configuration/editor/customInputDi
 import { getInputNodePropertyComponent } from "../configuration/editor/getInputNodePropertyComponent";
 import { getIsUniqueBlock } from "../configuration/editor/getIsUniqueBlock";
 import type { IBlockEditorRegistration } from "../configuration/editor/IBlockEditorRegistration";
-import { lutTexturePresets, texturePresets } from "../configuration/texturePresets";
+import { texturePresets } from "../configuration/texturePresets";
 import type { ThinEngine } from "@babylonjs/core/Engines/thinEngine";
 import type { SmartFilterRenderer } from "../smartFilterRenderer";
 import { StringTools } from "@babylonjs/shared-ui-components/stringTools";
@@ -77,7 +77,6 @@ export function launchEditor(currentSmartFilter: SmartFilter, engine: ThinEngine
                 );
             },
             texturePresets,
-            lutTexturePresets,
         });
     }
     if (renderer.runtime) {
