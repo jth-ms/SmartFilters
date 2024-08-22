@@ -70,17 +70,12 @@ export class ImageSourcePropertyTabComponent extends react.Component<ImageSource
                             if (this.props.inputBlock.runtimeValue.value) {
                                 this.props.inputBlock.runtimeValue.value.dispose();
                             }
-                            const selectedTexturePreset = this._texturePresets[newSelectionValue];
-                            const selectedImageTexture = createImageTexture(
+                            this.props.inputBlock.runtimeValue.value = createImageTexture(
                                 (this.props.stateManager.data as GlobalState).engine,
-                                selectedTexturePreset?.url || "",
-                                selectedTexturePreset?.textureConfig?.flipY,
-                                selectedTexturePreset?.textureConfig?.samplingMode,
-                                selectedTexturePreset?.textureConfig?.forcedExtension
+                                this._texturePresets[newSelectionValue]?.url || "",
+                                true,
+                                undefined
                             );
-                            selectedImageTexture.anisotropicFilteringLevel =
-                                selectedTexturePreset?.textureConfig?.anisotropicFilteringLevel || 4;
-                            this.props.inputBlock.runtimeValue.value = selectedImageTexture;
 
                             this.props.nodeData.refreshCallback?.();
                             this.forceUpdate();

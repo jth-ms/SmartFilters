@@ -22,7 +22,6 @@ export { type AnyInputBlock } from "./blocks/inputBlock.js";
 export { ShaderBlock } from "./blocks/shaderBlock.js";
 export { AggregateBlock } from "./blocks/aggregateBlock.js";
 export { CopyBlock } from "./blocks/copyBlock.js";
-export { TextureInputBlock, type TextureConfig } from "./blocks/textureInputBlock.js";
 export { ShaderBinding, ShaderRuntime } from "./runtime/shaderRuntime.js";
 export { type ShaderProgram, injectDisableUniform } from "./utils/shaderCodeUtils.js";
 export { type IDisableableBlock } from "./blocks/disableableBlock.js";
