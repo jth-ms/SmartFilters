@@ -21,7 +21,7 @@ export function creatLutKittensFilter(engine: ThinEngine): SmartFilter {
     const lutBlock = new LutBlock(smartFilter, "Lut");
     const lutDisabled = new InputBlock(smartFilter, "lutDisabled", ConnectionPointType.Boolean, false);
     const lutLevel = new InputBlock(smartFilter, "lutLevel", ConnectionPointType.Float, 1.0);
-    const burnLutTexture = createImageTexture(engine, BURN_17_17_34_LUT_DATA_URI, true, undefined, undefined);
+    const burnLutTexture = createImageTexture(engine, BURN_17_17_34_LUT_DATA_URI, false, undefined, undefined);
     burnLutTexture.anisotropicFilteringLevel = 1;
     const lutTexture = new InputBlock(
         smartFilter,
